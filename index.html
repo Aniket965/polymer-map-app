@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <title>mapscodelab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="bower_components/google-map/google-map.html">
+  <link rel="import" href="bower_components/google-map/google-map-directions.html">
+  <link rel="import" href="bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="bower_components/paper-item/paper-item.html">
+<link rel="import" href="bower_components/paper-item/paper-icon-item.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+  body{}
+      google-map {
+        margin-top:15vh;
+        display:block;
+        left:50%;
+        margin-left:-400px;
+        height:400px;
+        width:800px;
+        transition:box-shadow 300ms linear ;
+      }
+      paper-card {
+        position :absolute;
+        bottom:-400px;
+        left:200px;
+        box-shadow:5px 5px 40px -10px;
+      }
+  </style>
+</head>
+
+<body unresolved>
+  <template is="dom-bind">
+<google-map  map="{{map}}"  api-key="AIzaSyD36pLXQoS2byME7ss0-_V9wampBC_8V6Q">
+<google-map-directions map="[[map]]"
+    start-address="{{start}}" end-address="{{end}}"
+    travel-mode={{travelMode}}
+    api-key="AIzaSyD36pLXQoS2byME7ss0-_V9wampBC_8V6Q">
+</google-map-directions>
+<paper-card elevation = "3">
+  <paper-icon-item><iron-icon item-icon icon="search"></iron-icon><paper-input label="Start Address"
+    value="{{start}}"></paper-input>
+    <paper-input label="end address"
+    value="{{end}}"></paper-input>
+  </paper-icon-item></paper-icon-item>
+  <paper-tabs selected={{travelMode}} attr-for-selected="label">
+    <paper-tab label="DRIVING">
+      <iron-icon icon="maps:directions-car"></iron-icon>
+    </paper-tab>
+    <paper-tab label="WALKING">
+<iron-icon icon="maps:directions-walk"></iron-icon>
+    </paper-tab>
+    <paper-tab label="CYCLING">
+  <iron-icon icon="maps:directions-bike"></iron-icon>
+    </paper-tab>
+    <paper-tab label="TRANSIT">
+<iron-icon icon="maps:directions-transit"></iron-icon>
+    </paper-tab>
+  </paper-tabs>
+
+
+
+
+
+
+
+
+
+
+
+</paper-card>
+</template>
+<!-- <dom-module id ="my-name"><template>
+  <h3>{{firstName}}{{lastName}}</h3>
+</template></dom-module>
+<my-name first-name=":" last-name=")"></my-name>
+
+<script>
+  Polymer({
+    is:'my-name',
+    properties:{
+      firstName:String,
+      lastName:String
+    },
+    listeners:{
+      'tap':'alertm'
+    },
+    alertm:function(){
+      alert('hi');
+    }
+  }); -->
+<!-- </script> -->
+</body>
+</html>
